@@ -1,0 +1,123 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: rgb(234, 241, 238);
+  padding: 15px;
+}
+
+header a {
+  background-color: rgb(29, 224, 159);
+  color: white;
+  padding: 10px;
+  text-decoration: none;
+  border-radius: 8px;
+}
+
+h1 {
+  color: rgb(16, 116, 82);
+}
+
+h2 {
+  color: rgb(21, 150, 107);
+}
+
+#titulo-comentarios,
+#titulo-pqr {
+  display: inline-block;
+  padding: 3px;
+  color: rgb(21, 150, 107);
+  border-bottom: 2px solid rgb(21, 150, 107);
+}
+
+#formulario-pqr {
+  width: fit-content;
+  padding: 5px 20px;
+  border-radius: 5px;
+  border: 1px solid rgb(29, 224, 159);
+}
+
+button {
+  background-color: rgb(29, 224, 159);
+  color: white;
+  padding: 10px;
+  text-decoration: none;
+  border-radius: 8px;
+}
+
+#formulario-pqr form div label {
+  display: block;
+  font-weight: 700;
+  margin-bottom: 3px;
+}
+
+#formulario-pqr form div select {
+  display: block;
+  width: 100%;
+  margin-bottom: 8px;
+}
+
+#formulario-pqr form div textarea {
+  width: 100%;
+  margin-bottom: 3px;
+}
+
+footer {
+  background-color: rgb(221, 228, 225);
+  text-align: center;
+  padding: 10px 5px;
+  margin-top: 30px;
+}
+
+#mensaje {
+  width: fit-content;
+  padding: 10px;
+  border-radius: 8px;
+  background-color: rgba(29, 224, 159, 0.301);
+  border: 1px solid rgba(29, 224, 159);
+  color: rgb(13, 95, 68);
+}
+
+#mensaje_error {
+  width: fit-content;
+  padding: 10px;
+  border-radius: 8px;
+  background-color: rgba(224, 29, 29, 0.301);
+  border: 1px solid rgb(167, 22, 22);
+  color: rgb(167, 22, 22);
+  margin-bottom: 10px;
+}
+
+#contenedor_formulario_catalogo {
+  width: fit-content;
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: 1px solid rgb(29, 224, 159);
+  margin-top: 15px;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+#contenedor_formulario_catalogo h4 {
+  font-size: 20px;
+}
+
+#contenedor_formulario_catalogo form div label {
+  display: block;
+  font-weight: 700;
+  margin-bottom: 3px;
+}
+
+#contenedor_formulario_catalogo form div input {
+  display: block;
+  width: 100%;
+  margin-bottom: 8px;
+}
