@@ -114,6 +114,56 @@ if (isset($_SESSION["active"]) && $_SESSION["rol"] != 'admin') {
     echo "</ul>";
     ?>
   </div>
+
+  <div id="contenedor_pqrs">
+    <h4>Listado de cotizaciones</h4>
+    <?php
+    require_once "../conexion/conn.php";
+
+    $db = database::conectar();
+
+    $statement = $db->query("SELECT .u.id as usuarioId, u.nombre, u.email, u.telefono, c.nombre as catalogoNombre, c.id as catalogoId
+      FROM catalogo_has_usuarios cu 
+      INNER JOIN usuarios AS u
+        ON u.id = cu.usuarios_id
+      INNER JOIN catalogo AS c
+        ON c.id = cu.catalogo_id");
+
+    $usuarios = [];
+
+    while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
+      if (!isset($usuarios[$row['usuarioId']])) {
+        $usuarios[$row['usuarioId']] = [
+          'nombre' => $row['nombre'],
+          'email' => $row['email'],
+          'telefono' => $row['telefono'],
+          'productos' => []
+        ];
+      }
+
+      $usuarios[$row['usuarioId']]['productos'][] = [
+        'catalogoId' => $row['catalogoId'],
+        'catalogoNombre' => $row['catalogoNombre']
+      ];
+    }
+
+    echo "<ul>";
+
+    foreach ($usuarios as $usuario) {
+      echo "<li>
+            <h4>" . $usuario['nombre'] . ": " . $usuario['email'] . ", Telefono: " . $usuario['telefono'] . "</h4>
+            <ul>";
+
+      foreach ($usuario['productos'] as $producto) {
+        echo "<li>" . $producto['catalogoNombre'] . "</li>";
+      }
+
+      echo "</ul></li>";
+    }
+
+    echo "</ul>";
+    ?>
+  </div>
 </body>
 
 </html>

@@ -43,3 +43,21 @@ CREATE TABLE IF NOT EXISTS `proyecto_sena`.`catalogo` (
     REFERENCES `proyecto_sena`.`usuarios` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION);
+
+CREATE TABLE IF NOT EXISTS `proyecto_sena`.`catalogo_has_usuarios` (
+  `id` INT NULL DEFAULT NULL AUTO_INCREMENT,
+  `usuarios_id` INT NOT NULL,
+  `catalogo_id` INT NOT NULL,
+  PRIMARY KEY (`id`, `usuarios_id`),
+  CONSTRAINT `fk_catalogo_usuarios2`
+    FOREIGN KEY (`usuarios_id`)
+    REFERENCES `proyecto_sena`.`usuarios` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_catalogo_usuarios_catalogo`
+    FOREIGN KEY (`catalogo_id`)
+    REFERENCES `proyecto_sena`.`catalogo` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION
+);
+

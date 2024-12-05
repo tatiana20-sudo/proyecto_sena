@@ -62,30 +62,46 @@ if (isset($_SESSION["active"]) && $_SESSION["rol"] != 'usuario') {
     </div>
   </div>
 
-  <div id="contenedor_catalogos">
-    <h4>Listado de catalogos</h4>
-    <?php
-    require_once "../conexion/conn.php";
+  <div class="contenedor_productos">
+    <div id="contenedor_catalogos">
+      <div id="mensaje" class="mensaje-cotizacion" style="display: none;">
+        <strong>Exito</strong>
+        <span id="contenido-mensaje-cotizacion"></span>
+      </div>
 
-    $db = database::conectar();
+      <h2 id="titulo-catalogo">Listado de catalogos</h2>
+      <?php
+      require_once "../conexion/conn.php";
 
-    $statement = $db->query("SELECT * FROM catalogo");
+      $db = database::conectar();
 
-    echo "<ul>";
+      $statement = $db->query("SELECT * FROM catalogo");
 
-    while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
+      echo "<ul>";
 
-      echo "
+      while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
+
+        echo "
         <li>
           <h4>" . $row["nombre"] . "</h4>
           <img width='100' height='100' src='" . $row['imagen'] . "' />
+          <button data-catalogo='" . $row["id"] . "' data-nombre='" . $row["nombre"] . "' data-usuario='" . $_SESSION['id'] . "' class='agregar-producto'>Agregar</button>
         </li>
       ";
-    }
+      }
 
-    echo "</ul>";
-    ?>
+      echo "</ul>";
+      ?>
+    </div>
+
+    <div id="contenedor_resultados" style="display: none;">
+      <h2>Productos agregados</h2>
+      <ul id="contenedor_resultados_lista"></ul>
+      <button id="boton-cotizar">Enviar Cotización</button>
+    </div>
   </div>
+
+  <script src="../js/index.js"></script>
 </body>
 
 </html>
