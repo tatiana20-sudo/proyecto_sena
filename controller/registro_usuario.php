@@ -34,6 +34,11 @@
         ':rol' => "usuario",
       ));
 
+      $statementUser = $db->prepare("SELECT id FROM usuarios WHERE email = :email");
+      $statementUser->execute(array(':email' => $datos["email"]));
+
+      $rows = $statementUser->fetchAll(PDO::FETCH_ASSOC);
+
       if (!$result) {
         $_SESSION['active'] = 0;
 
@@ -43,6 +48,7 @@
 
       $_SESSION['active'] = 1;
       $_SESSION['rol'] = "usuario";
+      $_SESSION['id'] = $rows[0]['id'];
 
       header("Location: ../views/usuario.php?mensaje=Tu cuenta se creo con exito");
       die();
