@@ -37,27 +37,27 @@ if (isset($_SESSION["active"]) && $_SESSION['active'] == 1 && $_SESSION['rol'] =
   <form method="post" action="../controller/registro_usuario.php">
     <div>
       <label for="nombre">Nombre y Apellido</label>
-      <input type="text" id="nombre" name="nombre" placeholder="Nombre y Apellido" />
+      <input type="text" id="nombre" name="nombre" require placeholder="Nombre y Apellido" />
     </div>
     <div>
       <label for="cc">CC</label>
-      <input type="text" id="cc" placeholder="CC" name="cedula" />
+      <input type="text" id="cc" placeholder="CC" require name="cedula" />
     </div>
     <div>
       <label for="direccion">Dirección</label>
-      <input type="text" id="direccion" placeholder="Dirección" name="direccion" />
+      <input type="text" id="direccion" placeholder="Dirección" require name="direccion" />
     </div>
     <div>
       <label for="telefono">Teléfono</label>
-      <input type="text" id="telefono" placeholder="Teléfono" name="telefono" />
+      <input type="number" id="telefono" placeholder="Teléfono" require name="telefono" />
     </div>
     <div>
       <label for="correo">Correo electronico</label>
-      <input type="text" id="correo" placeholder="Correo electronico" name="email" />
+      <input type="email" id="correo" placeholder="Correo electronico" require name="email" />
     </div>
     <div>
       <label for="clave">Contraseña</label>
-      <input type="password" id="clave" placeholder="**********" name="clave" />
+      <input type="password" id="clave" placeholder="**********" require name="clave" />
     </div>
     <div>
       <button type="submit">Registrarse</button>

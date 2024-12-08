@@ -55,7 +55,7 @@ if (isset($_SESSION["active"]) && $_SESSION["rol"] != 'usuario') {
         </div>
         <div>
           <label for="texto">Texto PQR</label>
-          <textarea rows="5" id="texto" name="texto" placeholder="Escribe tu comentario aquí..."></textarea>
+          <textarea rows="5" require id="texto" name="texto" placeholder="Escribe tu comentario aquí..."></textarea>
         </div>
         <button type="submit">Enviar</button>
       </form>

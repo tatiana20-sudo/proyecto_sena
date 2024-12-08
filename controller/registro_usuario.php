@@ -13,10 +13,13 @@
   <?php
 
   class RegistroController
+  
   {
 
     public function registrarUsuario($datos)
+  
     {
+     
       session_start();
 
       require_once '../conexion/conn.php';
@@ -58,7 +61,9 @@
   $registroController = new RegistroController();
   $registroController->registrarUsuario($_POST);
 
-  ?>
+
+?>
+
 </body>
 
 </html>

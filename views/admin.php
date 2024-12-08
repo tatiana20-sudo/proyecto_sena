@@ -53,11 +53,11 @@ if (isset($_SESSION["active"]) && $_SESSION["rol"] != 'admin') {
     <form method="post" action="../controller/catalogo.php" enctype="multipart/form-data">
       <div>
         <label for="nombre">Nombre del registro</label>
-        <input type="text" id="nombre" name="nombre" placeholder="Por ejemplo: Drywall" />
+        <input type="text" id="nombre" name="nombre" require placeholder="Por ejemplo: Drywall" />
       </div>
       <div>
         <label for="imagen">Selecciona una imagen</label>
-        <input type="file" name="imagen" id="imagen">
+        <input type="file" require name="imagen" id="imagen">
       </div>
       <div>
         <button type="submit">Enviar</button>
@@ -66,7 +66,7 @@ if (isset($_SESSION["active"]) && $_SESSION["rol"] != 'admin') {
   </div>
 
   <div id="contenedor_catalogos">
-    <h4>Listado de catalogos</h4>
+    <h2 class="title">Listado de catalogos</h2>
     <?php
     require_once "../conexion/conn.php";
 
@@ -80,7 +80,7 @@ if (isset($_SESSION["active"]) && $_SESSION["rol"] != 'admin') {
 
       echo "
         <li>
-          <h4>" . $row["nombre"] . "</h4>
+          <h4 class='catalogo-titulo'>" . $row["nombre"] . "</h4>
           <img width='100' height='100' src='" . $row['imagen'] . "' />
         </li>
       ";
@@ -91,7 +91,7 @@ if (isset($_SESSION["active"]) && $_SESSION["rol"] != 'admin') {
   </div>
 
   <div id="contenedor_pqrs">
-    <h4>Listado de PQRs</h4>
+    <h2 class="title">Listado de PQRs</h2>
     <?php
     require_once "../conexion/conn.php";
 
@@ -116,7 +116,7 @@ if (isset($_SESSION["active"]) && $_SESSION["rol"] != 'admin') {
   </div>
 
   <div id="contenedor_pqrs">
-    <h4>Listado de cotizaciones</h4>
+    <h2 class="title">Listado de cotizaciones</h2>
     <?php
     require_once "../conexion/conn.php";
 
